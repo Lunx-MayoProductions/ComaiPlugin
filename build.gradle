@@ -17,12 +17,20 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name="upstream"
+        url="https://ci.nametagedit.com/plugin/repository/everything/"
+    }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly "dev.jorel:commandapi-bukkit-core:10.0.0"
     shadow ('com.konghq:unirest-java:3.13.6')
+    compileOnly 'net.luckperms:api:5.4'
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+    compileOnly 'com.nametagedit:nametagedit:4.4.16'
 }
 
 tasks {

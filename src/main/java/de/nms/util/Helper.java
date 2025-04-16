@@ -33,6 +33,10 @@ public class Helper {
         return MiniMessage.miniMessage().deserialize(message);
     }
 
+    public static Component rawConvert(String miniMessage){
+        return MiniMessage.miniMessage().deserialize(miniMessage);
+    }
+
     public static void sendEveryone(String message){
         String fMSG = message
                 .replace("$prefix$", PREFIX)

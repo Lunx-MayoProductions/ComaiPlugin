@@ -1,29 +1,35 @@
 package de.nms;
 
 import de.nms.commands.ComaiCommand;
-import de.nms.commands.CommandManager;
 import de.nms.commands.impl.BanCommand;
 import de.nms.commands.impl.GamemodeCommand;
 import de.nms.commands.impl.InfoCommand;
 import de.nms.database.Database;
 import de.nms.database.RedisDataBase;
 import de.nms.database.YamlDatabase;
+import de.nms.events.ChatEvent;
+import de.nms.events.JoinEvent;
 import de.nms.events.LoginEvent;
 import de.nms.util.Licenser;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 public class Main extends JavaPlugin {
     private static Main main;
     private static boolean started;
     Database database;
     List<ComaiCommand> commands = new ArrayList<>( );
+    @Getter
+    private static LuckPerms LUCKPERMS;
 
     @Override
     public void onEnable() {
@@ -77,6 +83,8 @@ public class Main extends JavaPlugin {
         }
 
         Bukkit.getPluginManager().registerEvents(new LoginEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatEvent(),  this);
+        Bukkit.getPluginManager().registerEvents(new JoinEvent(),  this);
     }
     public FileConfiguration config() {
         return getConfig();

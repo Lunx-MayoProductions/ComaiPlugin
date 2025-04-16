@@ -4,3 +4,7 @@ database:
 important:
   customerid: ""
   license: ""
+
+tab:
+  header: <gradient:dark_purple:light_purple>%serverName% Network!\n
+  footer: <gray>%serverName% network
