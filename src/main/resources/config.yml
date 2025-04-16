@@ -1,0 +1,6 @@
+database:
+  type: Yaml
+
+important:
+  customerid: ""
+  license: ""

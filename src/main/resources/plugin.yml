@@ -1,0 +1,6 @@
+name: Comai
+version: 1.0.0
+api-version: '1.21'
+main: de.nms.Main
+libraries:
+  - com.konghq:unirest-java:3.13.6
